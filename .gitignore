@@ -1,0 +1,80 @@
+# Android
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+captures/
+*.jks
+*.keystore
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+
+# IDE
+.vscode/
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Gradle
+gradle-app.setting
+!gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Android Studio
+captures/
+*.jks
+*.keystore
+
+# Backend specific
+backend/build/
+backend/.gradle/
+
+# Frontend specific
+frontend/app/build/
+frontend/build/
+frontend/app/build.gradle.kts
+frontend/build.gradle.kts
+
+# Memory bank (if not to be tracked)
+memory_bank/*.tmp
+
+# Node modules (if any)
+node_modules/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# API keys and secrets
+secrets.properties
+api_keys.json
