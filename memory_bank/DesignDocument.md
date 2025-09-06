@@ -13,10 +13,6 @@ The app comprises client (Android) and server (Spring Boot), communicating via a
 |   Android App  |
 +--------+-------+
          |
-        REST
-         |
-+--------+-------+
-|   API Gateway  |         (Spring Boot 3 Modular Monolith, SQLite)
 +--------+-------+
   |    |     |   |
 User Receipt Store Item
@@ -24,7 +20,6 @@ User Receipt Store Item
 +------+------+---+
       SQLite
 ```
-- **Backend**: Java 17, Spring Boot 3 (Modular Monolith)
 - **Frontend**: Java (Android)
 - **Database**: **SQLite** (embedded, file-based, lightweight)[4][5][1]
 - **Module Examples**: User, Receipt, Store, Item
@@ -97,20 +92,10 @@ CREATE TABLE receipt_items (
 
 ## Stack
 
-- **Backend**: Java 17, Spring Boot 3, Gradle, JPA/Hibernate (configure for SQLite dialect)
 - **Frontend**: Java
 - **Authentication**: Clerk
 - **OCR**: Google Cloud Vision API
 - **Deployment**: Docker, GitHub Actions
-
-***
-
-## SQLite-Specific Notes
-
-- Embedded, serverless DB eliminates server configuration.[5]
-- Suited for single-user/local deployments.[6][1]
-- Less overhead: ideal for mobile and lightweight backend use.[5]
-- Limited concurrent write access: app should implement transaction handling and avoid write spikes.
 
 ***
 
@@ -120,16 +105,12 @@ CREATE TABLE receipt_items (
 
 All domain models remain as Lombok-annotated POJOs, adapted for SQLite column types. Use integer auto-incrementing IDs. Mappings and relationships must be adjusted for SQLite’s constraints and best practices.
 
-### API Design
-
-No change; endpoints remain unchanged. Data returned/received adheres to SQLite’s schema.
-
 ### OCR Integration
 Identical workflow: images uploaded by users, processed via Google Cloud Vision, results mapped and stored in SQLite.
 
 ### Frontend Responsibilities
 
-No change; operates via REST endpoints, receives/store data from SQLite-powered backend.
+No change; operates from SQLite-powered backend.
 
 ### Docker & CI/CD
 
