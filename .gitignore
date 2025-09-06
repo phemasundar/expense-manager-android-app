@@ -48,15 +48,11 @@ captures/
 *.jks
 *.keystore
 
-# Backend specific
-backend/build/
-backend/.gradle/
-
 # Frontend specific
-frontend/app/build/
-frontend/build/
-frontend/app/build.gradle.kts
-frontend/build.gradle.kts
+app/build/
+build/
+app/build.gradle.kts
+build.gradle.kts
 
 # Memory bank (if not to be tracked)
 memory_bank/*.tmp
