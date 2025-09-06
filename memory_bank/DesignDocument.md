@@ -57,18 +57,36 @@ CREATE TABLE receipts (
   image_url TEXT
 );
 
+CREATE TABLE category (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE productType (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT
+);
+
 CREATE TABLE items (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
-  price REAL,
-  category TEXT
+  category INTEGER REFERENCES category(id),
+  product_type INTEGER REFERENCES productType(id)
+  
+);
+
+CREATE TABLE brand (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
 );
 
 CREATE TABLE receipt_items (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   receipt_id INTEGER REFERENCES receipts(id),
   item_id INTEGER REFERENCES items(id),
+  brand_name INTEGER REFERENCES brand(id)
   quantity INTEGER,
+  weight FLOAT,
   amount REAL
 );
 ```
