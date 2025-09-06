@@ -9,13 +9,32 @@ import com.example.expensemanager.domain.ExpenseRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SQLite implementation of the ExpenseRepository interface.
+ * This class handles all database operations for expense management including CRUD operations.
+ * It uses SQLite database for persistent storage of expense data.
+ */
 public class ExpenseRepositoryImpl implements ExpenseRepository {
+
+    /** Database helper instance for managing database connections */
     private final ExpenseDatabaseHelper dbHelper;
 
+    /**
+     * Constructor for ExpenseRepositoryImpl.
+     * Initializes the database helper which will create the database if it doesn't exist.
+     *
+     * @param context The application context required for database operations
+     */
     public ExpenseRepositoryImpl(Context context) {
         this.dbHelper = new ExpenseDatabaseHelper(context);
     }
 
+    /**
+     * Retrieves all expenses from the database.
+     * Queries the expenses table and returns a list of all stored expenses.
+     *
+     * @return List of all expenses in the database, empty list if no expenses exist
+     */
     @Override
     public List<Expense> getAllExpenses() {
         List<Expense> expenses = new ArrayList<>();
@@ -43,6 +62,13 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         return expenses;
     }
 
+    /**
+     * Retrieves a specific expense by its ID.
+     * Searches the database for an expense with the given ID.
+     *
+     * @param id The unique identifier of the expense to retrieve
+     * @return The expense with the specified ID, or null if not found
+     */
     @Override
     public Expense getExpenseById(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -70,6 +96,12 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         return expense;
     }
 
+    /**
+     * Adds a new expense to the database.
+     * Inserts the expense data into the expenses table.
+     *
+     * @param expense The expense object to be added to the database
+     */
     @Override
     public void addExpense(Expense expense) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -85,6 +117,12 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         db.close();
     }
 
+    /**
+     * Updates an existing expense in the database.
+     * Finds the expense by ID and updates all its fields with the new values.
+     *
+     * @param expense The expense object with updated information
+     */
     @Override
     public void updateExpense(Expense expense) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -104,6 +142,12 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         db.close();
     }
 
+    /**
+     * Deletes an expense from the database.
+     * Removes the expense with the specified ID from the expenses table.
+     *
+     * @param id The unique identifier of the expense to delete
+     */
     @Override
     public void deleteExpense(String id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
