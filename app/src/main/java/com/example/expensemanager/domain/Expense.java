@@ -1,33 +1,36 @@
 package com.example.expensemanager.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * Domain model representing an expense entry.
+ * This class encapsulates all the data related to a single expense including
+ * its identifier, description, amount, category, and date.
+ *
+ * Uses Lombok annotations to reduce boilerplate code:
+ * - @Data: Generates getters, setters, equals, hashCode, and toString
+ * - @AllArgsConstructor: Generates constructor with all fields
+ * - @NoArgsConstructor: Generates no-args constructor
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Expense {
+
+    /** Unique identifier for the expense */
     private String id;
+
+    /** Description of the expense (e.g., "Lunch at restaurant") */
     private String description;
+
+    /** Monetary amount of the expense */
     private double amount;
+
+    /** Category of the expense (e.g., "Food", "Transportation") */
     private String category;
+
+    /** Date when the expense occurred (stored as timestamp) */
     private long date;
-
-    public Expense(String id, String description, double amount, String category, long date) {
-        this.id = id;
-        this.description = description;
-        this.amount = amount;
-        this.category = category;
-        this.date = date;
-    }
-
-    // Getters and setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-
-    public double getAmount() { return amount; }
-    public void setAmount(double amount) { this.amount = amount; }
-
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
-
-    public long getDate() { return date; }
-    public void setDate(long date) { this.date = date; }
 }
