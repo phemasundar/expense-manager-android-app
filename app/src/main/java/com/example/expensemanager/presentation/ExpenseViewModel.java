@@ -6,13 +6,19 @@ import androidx.lifecycle.ViewModel;
 import com.example.expensemanager.domain.Expense;
 import com.example.expensemanager.domain.ExpenseRepository;
 import com.example.expensemanager.domain.GetExpensesUseCase;
+import lombok.Getter;
+
 import java.util.List;
 
 /**
  * ViewModel for managing expense-related data and business logic.
  * This class acts as a bridge between the UI layer and the domain layer,
  * providing observable data and handling expense operations.
+ *
+ * Uses Lombok annotations to reduce boilerplate code:
+ * - @Getter: Generates getter for the expenses LiveData
  */
+@Getter
 public class ExpenseViewModel extends ViewModel {
 
     /** Use case for retrieving expenses from the repository */

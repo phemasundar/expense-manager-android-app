@@ -25,7 +25,7 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
      *
      * @param context The application context required for database operations
      */
-    public ExpenseRepositoryImpl(Context context) {
+    public ExpenseRepositoryImpl(android.content.Context context) {
         this.dbHelper = new ExpenseDatabaseHelper(context);
     }
 

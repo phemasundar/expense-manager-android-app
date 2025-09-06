@@ -89,6 +89,9 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
      * ViewHolder class for expense items.
      * Holds references to the TextViews in the expense item layout and provides
      * a method to bind expense data to these views.
+     *
+     * Uses Lombok annotations to reduce boilerplate code:
+     * - @AllArgsConstructor: Generates constructor with all fields
      */
     static class ExpenseViewHolder extends RecyclerView.ViewHolder {
 
